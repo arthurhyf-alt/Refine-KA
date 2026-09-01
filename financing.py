@@ -323,6 +323,155 @@ def load_cache():
         return {}
 
 
+# ---------------------------------------------------------------------------
+# 未上市公司：结构化融资轮次数据（公开报道核实，含来源链接）
+# amountYi 单位为人民币亿元；金额未披露的轮次为 None。
+# ---------------------------------------------------------------------------
+UNLISTED_FINANCING_ROUNDS = {
+    "壁仞科技（上海）有限公司": {
+        "status": "已上市：2026-01-02 港股 IPO（06082.HK），募资 55.83 亿港元，上市前累计融资约 87 亿元",
+        "totalRaisedYi": 87.3,
+        "rounds": [
+            {"round": "天使轮", "date": "2019-12", "amountYi": None, "investors": ["鸿灏资本"]},
+            {"round": "A轮", "date": "2020-06", "amountYi": 11, "investors": ["启明创投", "IDG资本", "华登国际"]},
+            {"round": "A+轮", "date": "2020-07", "amountYi": None, "investors": ["中芯聚源"]},
+            {"round": "Pre-B轮", "date": "2020-08", "amountYi": None, "investors": ["高瓴创投", "IDG资本", "松禾资本"]},
+            {"round": "B轮", "date": "2021-03", "amountYi": 19, "investors": ["平安创投", "IDG资本", "源码资本", "高瓴创投"]},
+            {"round": "C轮", "date": "2023-01", "amountYi": None, "investors": ["高瓴创投", "昇和资本"]},
+            {"round": "C+轮", "date": "2023-07", "amountYi": None, "investors": ["广厚资本", "贯邦资本"]},
+            {"round": "D轮", "date": "2025-05", "amountYi": None, "investors": ["上海国投", "海通开元", "中国保险投资基金"]},
+            {"round": "基石投资", "date": "2025-12", "amountYi": None, "investors": ["启明创投", "平安人寿", "泰康人寿", "正大集团"]},
+            {"round": "IPO(港股)", "date": "2026-01", "amountYi": 51, "investors": ["公开发行"]},
+        ],
+        "url": "https://vc.pedaily.cn/company/33213.html",
+    },
+    "燧原科技有限公司": {
+        "status": "IPO进行中：2026-01 科创板 IPO 受理（拟募 60 亿元），上市前累计融资近 70 亿元，投后估值约 200 亿元",
+        "totalRaisedYi": 70.0,
+        "rounds": [
+            {"round": "种子轮", "date": "2018-08", "amountYi": None, "investors": ["亦合资本", "真格基金", "达泰资本", "云和资本"]},
+            {"round": "Pre-A轮", "date": "2018-08", "amountYi": 3.4, "investors": ["腾讯(领投)", "上海科创集团"]},
+            {"round": "A轮", "date": "2019-06", "amountYi": 3.0, "investors": ["红点创投(领投)", "腾讯", "海松资本"]},
+            {"round": "B轮", "date": "2020-00", "amountYi": 7.0, "investors": ["武岳峰资本(领投)", "腾讯"]},
+            {"round": "C轮", "date": "2021-00", "amountYi": 18.0, "investors": ["CPE源峰", "中金资本", "春华资本"]},
+            {"round": "D轮", "date": "2023-09", "amountYi": 20.0, "investors": ["上海国际集团系基金", "腾讯", "美图"]},
+            {"round": "D++轮", "date": "2024-06", "amountYi": 7.5, "investors": ["腾讯(3亿)", "杭州招临", "国泰证裕"]},
+            {"round": "E轮", "date": "2024-12", "amountYi": 27.2, "investors": ["上海集成电路基金", "腾讯", "36家投资者"]},
+        ],
+        "url": "https://zhengguannews.cn/zghnews/408073.html",
+    },
+    "厦门海辰储能科技股份有限公司": {
+        "status": "未上市：港股两度递表失效（2025-03 / 2025-10），累计融资约 80 亿元，估值约 250-300 亿元",
+        "totalRaisedYi": 80.0,
+        "rounds": [
+            {"round": "天使轮", "date": "2019-12", "amountYi": None, "investors": ["朝希投资", "鑫睿创投", "中国宝安"]},
+            {"round": "A轮", "date": "2021-03", "amountYi": None, "investors": ["朝希资本", "大公资本"]},
+            {"round": "B轮", "date": "2022-10", "amountYi": 20.0, "investors": ["农银国际(领投)", "建信股权", "经纬创投", "峰和资本"]},
+            {"round": "C轮", "date": "2023-06", "amountYi": 45.0, "investors": ["国寿股权(领投)", "金融街资本", "中银资产", "国投招商", "中金资本"]},
+        ],
+        "url": "https://baike.baidu.com/item/%E5%8E%A6%E9%97%A8%E6%B5%B7%E8%BE%B0%E5%82%A8%E8%83%BD%E7%A7%91%E6%8A%80%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/62084584",
+    },
+    "杭州云深处科技有限公司": {
+        "status": "IPO进行中：据公开报道正在冲刺 A 股（科创板）",
+        "totalRaisedYi": None,
+        "rounds": [
+            {"round": "多轮融资", "date": None, "amountYi": None, "investors": ["公开报道未披露完整轮次明细"]},
+        ],
+        "url": "https://zj87.jxt.zj.gov.cn/zlzq/web/views/article/news/detail.html?id=292352",
+    },
+    "沐曦集成电路（上海）有限公司": {
+        "status": "已上市：据公开报道沐曦股份已登陆科创板（2026 年初）",
+        "totalRaisedYi": None,
+        "rounds": [
+            {"round": "多轮融资(上市前)", "date": None, "amountYi": None, "investors": ["公开报道：上市前完成多轮融资"]},
+        ],
+        "url": "https://finance.sina.cn/tech/2026-02-01/detail-inhkhwmk8897883.d.html",
+    },
+}
+
+# 知名机构关键词（投资方质量加分）
+TIER1_INVESTOR_KEYWORDS = (
+    "腾讯", "高瓴", "IDG", "红杉", "启明", "中金", "国投", "国寿", "中银", "平安",
+    "深创投", "武岳峰", "CPE", "春华", "农银", "建信", "金石", "鼎晖", "经纬",
+)
+
+
+def round_depth_score(round_name: str):
+    """轮次深度 → 0-50 基准分。"""
+    table = [
+        ("天使", 12), ("种子", 10), ("Pre-A", 18), ("A+", 24), ("A轮", 22),
+        ("Pre-B", 28), ("B+", 34), ("B轮", 32), ("C+", 40), ("C轮", 38),
+        ("D+", 45), ("D轮", 44), ("E轮", 46), ("基石", 48), ("Pre-IPO", 48), ("IPO", 50),
+    ]
+    for key, value in table:
+        if key in (round_name or ""):
+            return value
+    return 16  # 未知轮次按早期偏上处理
+
+
+def unlisted_financing_score(info):
+    """未上市公司结构化融资评分（0-100）。
+
+    组成：轮次深度 45 + 累计金额 30 + 最近融资时间 15 + 投资方质量 10。
+    """
+    if not info or not info.get("rounds"):
+        return None
+    rounds = info["rounds"]
+    deepest = max(round_depth_score(r.get("round") or "") for r in rounds)
+    depth_score = deepest / 50 * 45
+
+    total = info.get("totalRaisedYi")
+    if total is None:
+        known = [r.get("amountYi") for r in rounds if r.get("amountYi")]
+        total = sum(known) if known else None
+    if total is None:
+        amount_score = 12
+    elif total < 5:
+        amount_score = 14
+    elif total < 20:
+        amount_score = 19
+    elif total < 50:
+        amount_score = 24
+    elif total < 100:
+        amount_score = 27
+    else:
+        amount_score = 30
+
+    dates = sorted([r["date"] for r in rounds if r.get("date")], reverse=True)
+    recency_score = 4
+    if dates:
+        latest = dates[0][:7]  # YYYY-MM
+        if latest >= "2025-09":
+            recency_score = 15
+        elif latest >= "2024-09":
+            recency_score = 12
+        elif latest >= "2023-09":
+            recency_score = 8
+
+    investors_text = "、".join(
+        inv for r in rounds for inv in (r.get("investors") or [])
+    )
+    quality_score = 10 if any(k in investors_text for k in TIER1_INVESTOR_KEYWORDS) else 6
+
+    score = clamp(depth_score + amount_score + recency_score + quality_score, 40, 95)
+    return {"score": round(score, 1), "confidence": 0.8}
+
+
+def unlisted_financing_evidence(name, info):
+    """未上市公司融资轮次的证据文本。"""
+    if not info:
+        return "轮次明细未采集：按公开阶段标签折算融资活跃度（建议接入创投数据库补全 A/B/C/D 轮明细）。", []
+    lines = [f"{info.get('status') or '未上市公司'}。"]
+    for r in info.get("rounds", []):
+        amount = f"{r['amountYi']}亿元" if r.get("amountYi") else "金额未披露"
+        date = r.get("date") or "时间未披露"
+        investors = "、".join(r.get("investors") or []) or "投资方未披露"
+        lines.append(f"{r.get('round')}（{date}，{amount}）：{investors}")
+    text = "未上市/成长型企业融资历程：" + "；".join(lines)
+    items = [{"source": "公开融资报道（详见链接）", "url": info.get("url") or "", "text": info.get("status") or ""}]
+    return text, items
+
+
 def save_cache(financing_map):
     CACHE.parent.mkdir(exist_ok=True)
     CACHE.write_text(json.dumps(

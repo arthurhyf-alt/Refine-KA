@@ -55,7 +55,7 @@ SUPPLEMENTAL_COMPANIES = [
     ("浙江洛洋游艇制造有限公司", "浙江", "湖州市", "shipbuilding", "省级专精特新", "湖州游艇制造基地", "https://zj87.jxt.zj.gov.cn/zlzq/web/views/article/news/detail.html?id=278338"),
     ("亚太机电集团安吉汽车管路有限公司", "浙江", "湖州市", "automotive", "省级专精特新", "湖州安吉汽车零部件生产", "https://zj87.jxt.zj.gov.cn/zlzq/web/views/article/news/detail.html?id=278338"),
     ("浙江养芝康生物科技有限公司", "浙江", "湖州市", "life-science", "省级专精特新", "湖州生物科技经营主体", "https://zj87.jxt.zj.gov.cn/zlzq/web/views/article/news/detail.html?id=278338"),
-    ("杭州宇树科技股份有限公司", "浙江", "杭州市", "oem-core", "多轮融资", "杭州机器人总部与研发", "https://zj87.jxt.zj.gov.cn/zlzq/web/views/article/news/detail.html?id=292352"),
+    # 宇树科技已于 2026-08-19 科创板上市（688836），由 A 股底池自动采集，不再放入未上市补充池
     ("杭州云深处科技有限公司", "浙江", "杭州市", "oem-core", "多轮融资", "杭州机器人总部与研发", "https://zj87.jxt.zj.gov.cn/zlzq/web/views/article/news/detail.html?id=292352"),
     ("浙江强脑科技有限公司", "浙江", "杭州市", "life-science", "多轮融资/小巨人", "杭州脑机接口研发经营", "https://zjjcmspublic.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/jcms_files/jcms1/web1585/site/attach/0/08a8e17d155f4f66bac8c23575459453.pdf"),
     # Fujian: official specialised-SME equity-financing reward list and SME lists.
@@ -317,20 +317,36 @@ def build_supplemental_companies():
                                 "evidenceItems": [{"source": stage, "url": url, "text": evidence}]}
         metrics["policy"] = {"score": 76, "confidence": 0.84, "evidence": evidence,
                              "evidenceItems": [{"source": "政府企业名单/政府转载名单", "url": url, "text": evidence}]}
-        fin_stage_score = stage_financing_score(stage)
-        metrics["financing"] = {
-            "score": fin_stage_score, "confidence": 0.72,
-            "evidence": f"融资/资本情况：企业阶段披露为「{stage}」，按公开政府名单/新闻折算融资活跃度 {fin_stage_score} 分。",
-            "evidenceItems": [{"source": stage, "url": url, "text": f"公开披露的企业阶段：{stage}（来源：{basis}）"}],
-        }
+
+        # 融资/资本分：优先使用公开核实的结构化轮次数据（A/B/C/D轮、金额、投资方），无则按阶段标签降级
+        rounds_info = financing.UNLISTED_FINANCING_ROUNDS.get(name)
+        structured = financing.unlisted_financing_score(rounds_info)
+        if structured:
+            fin_evidence, fin_items = financing.unlisted_financing_evidence(name, rounds_info)
+            metrics["financing"] = {
+                "score": structured["score"], "confidence": structured["confidence"],
+                "evidence": fin_evidence, "evidenceItems": fin_items,
+            }
+            listing_status = rounds_info.get("status", "未限定")
+        else:
+            fin_stage_score = stage_financing_score(stage)
+            fin_evidence, _ = financing.unlisted_financing_evidence(name, None)
+            metrics["financing"] = {
+                "score": fin_stage_score, "confidence": 0.72,
+                "evidence": f"{fin_evidence}当前阶段标签为「{stage}」，折算融资活跃度 {fin_stage_score} 分。",
+                "evidenceItems": [{"source": stage, "url": url, "text": f"公开披露的企业阶段：{stage}（来源：{basis}）"}],
+            }
+            listing_status = "未限定"
+
         record = {
             "id": f"growth-{ns_id}-{region}-{index}", "industry": name, "companyName": name,
             "companyCode": "", "nsIndustryId": ns_id, "region": region,
             "registeredRegion": "不作为地区筛选条件", "subregion": subregion,
             "operatingRegions": [region], "operatingSubregions": [subregion],
-            "operatingBasis": basis, "companyStage": stage, "listingStatus": "未限定",
+            "operatingBasis": basis, "companyStage": stage, "listingStatus": listing_status,
             "registeredAddress": "", "updatedAt": time.strftime("%Y-%m-%d"),
             "sourceUrl": url, "marketSector": f"{stage}｜{basis}", "metrics": metrics,
+            "financingScore": metrics["financing"]["score"],
         }
         output.append(record)
         output.append({**record, "id": f"growth-{ns_id}-全国-{index}", "region": "全国"})
