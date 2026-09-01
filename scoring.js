@@ -8,13 +8,14 @@ export const DIMENSIONS = [
 ];
 
 export const COMPANY_DIMENSIONS = [
-  { key: "budget", label: "需求与预算", defaultWeight: 20 },
+  { key: "budget", label: "需求与预算", defaultWeight: 15 },
   { key: "expansion", label: "资本与扩张", defaultWeight: 15 },
   { key: "technology", label: "技术与产品突破", defaultWeight: 15 },
-  { key: "product", label: "新产品发布", defaultWeight: 15 },
+  { key: "product", label: "新产品发布", defaultWeight: 10 },
   { key: "market", label: "市场需求与行业地位", defaultWeight: 15 },
   { key: "talent", label: "人才与组织活跃度", defaultWeight: 10 },
   { key: "policy", label: "政策与荣誉信号", defaultWeight: 10 },
+  { key: "financing", label: "融资与资本", defaultWeight: 10 },
 ];
 
 export const clamp = (value, min, max) => Math.min(max, Math.max(min, value));

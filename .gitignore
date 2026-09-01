@@ -11,6 +11,7 @@ data/*.db
 data/*-wal
 data/*-shm
 data/pipeline-results.json
+data/financing.json
 *.log
 *.tmp
 

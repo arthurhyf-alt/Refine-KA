@@ -9,6 +9,8 @@ import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+import financing
+
 ROOT = pathlib.Path(__file__).resolve().parent
 OUT = ROOT / "data" / "companies.json"
 SECTOR_API = "https://vip.stock.finance.sina.com.cn/q/view/newSinaHy.php"
@@ -207,34 +209,99 @@ def quote_url(code: str):
     return f"https://quote.eastmoney.com/{prefix}{code}.html"
 
 
+def mktcap_rank_score(rank: int, pool_size: int = 50):
+    """市值排名分：保持原有对数衰减公式，区间 55-96。"""
+    return round(max(55, 96 - 41 * math.log1p(rank - 1) / math.log(pool_size)), 1)
+
+
+def stage_financing_score(stage: str):
+    """非上市/成长型补充池：按公开披露的阶段信息映射融资/资本分（0-100）。"""
+    stage = stage or ""
+    rules = [
+        (("多轮融资",), 88), (("战略融资",), 84), (("股权融资",), 82),
+        (("小巨人",), 80), (("重点专精特新",), 78), (("专精特新",), 74),
+        (("政府支持",), 70),
+    ]
+    score = 68
+    for keywords, value in rules:
+        if any(keyword in stage for keyword in keywords):
+            score = max(score, value)
+    return score
+
+
 def build_companies(universe):
+    # 一次性采集全候选池的融资/资本信号（两融、主力资金、大宗交易），带缓存
+    codes = sorted({str(row.get("f12") or "") for row in universe if row.get("f12")})
+    financing_map = financing.build_financing_map(codes)
+
     output = []
     for ns_id, keywords in NS_KEYWORDS.items():
         base = [row for row in universe if matches(str(row.get("f100") or ""), keywords)]
         for region in ("全国", "上海", "浙江", "福建", "江西"):
-            candidates = base if region == "全国" else [row for row in base if row.get("region") == region]
+            # 地区硬过滤
+            regional = base if region == "全国" else [row for row in base if row.get("region") == region]
             unique = {}
-            for row in candidates:
+            for row in regional:
                 code = str(row.get("f12") or "")
                 if code not in unique or float(row.get("f20") or 0) > float(unique[code].get("f20") or 0):
                     unique[code] = row
             candidates = sorted(unique.values(), key=lambda row: float(row.get("f20") or 0), reverse=True)
-            for rank, row in enumerate(candidates[:50], start=1):
+
+            # 候选池兜底：不足 50 家时，从全国候选按按市值递补，确保 Top50 视图始终有 50 行
+            overflowed = 0
+            if len(candidates) < 50 and region != "全国":
+                seen = {str(r.get("f12") or "") for r in candidates}
+                overflow_pool = {}
+                for row in base:
+                    code = str(row.get("f12") or "")
+                    if code in seen:
+                        continue
+                    if code not in overflow_pool or float(row.get("f20") or 0) > float(overflow_pool[code].get("f20") or 0):
+                        overflow_pool[code] = row
+                overflow = sorted(overflow_pool.values(), key=lambda row: float(row.get("f20") or 0), reverse=True)
+                need = 50 - len(candidates)
+                candidates = candidates + overflow[:need]
+                overflowed = min(len(overflow), need)
+
+            # 综合得分 = 市值排名分 × 0.65 + 融资/资本分 × 0.35（融资信号缺失按中性 55 计）
+            composite_rows = []
+            for old_rank, row in enumerate(candidates, start=1):
                 code = str(row["f12"])
-                score = round(max(55, 96 - 41 * math.log1p(rank - 1) / math.log(50)), 1)
-                evidence = f"公开A股地区：{row.get('region') or '待确认'}；行业分类：{row.get('f100') or '待确认'}；在{region}候选池按公开总市值排序第{rank}。"
+                market_score = mktcap_rank_score(old_rank, max(50, len(candidates)))
+                signal = financing_map.get(code)
+                fin = financing.financing_score(signal) if signal else None
+                fin_score = fin["score"] if fin else 55.0
+                composite = round(0.65 * market_score + 0.35 * fin_score, 1)
+                composite_rows.append((composite, row, old_rank, market_score, fin, signal, code))
+            composite_rows.sort(key=lambda item: item[0], reverse=True)
+
+            for rank, (composite, row, old_rank, market_score, fin, signal, code) in enumerate(composite_rows[:50], start=1):
+                overflow_tag = "（含跨地区补足）" if (region != "全国" and old_rank > len(regional)) else ""
+                evidence = f"公开A股地区：{row.get('region') or '待确认'}；行业分类：{row.get('f100') or '待确认'}；在{region}候选池按市值×融资/资本综合排序第{rank}（综合分 {composite}）{overflow_tag}。"
                 metrics = {key: {"score": None, "confidence": 0, "evidence": "尚未采集公司级证据", "evidenceItems": []}
-                           for key in ("budget", "expansion", "technology", "product", "market", "talent", "policy")}
+                           for key in ("budget", "expansion", "technology", "product", "market", "talent", "policy", "financing")}
                 metrics["market"] = {
-                    "score": score, "confidence": 0.82, "evidence": evidence,
+                    "score": market_score, "confidence": 0.82, "evidence": evidence,
                     "evidenceItems": [{"source": "公开A股地区、行业与市值数据", "url": quote_url(code), "text": evidence}],
                 }
+                if fin:
+                    fin_evidence, fin_items = financing.financing_evidence(code, signal, fin)
+                    metrics["financing"] = {
+                        "score": fin["score"], "confidence": fin["confidence"],
+                        "evidence": fin_evidence, "evidenceItems": fin_items,
+                    }
+                else:
+                    metrics["financing"] = {
+                        "score": None, "confidence": 0,
+                        "evidence": "融资/资本信号未采集（两融、主力资金、大宗交易均不可用），本维度不计分。", "evidenceItems": [],
+                    }
                 output.append({
                     "id": f"company-{ns_id}-{region}-{code}", "industry": row["f14"], "companyName": row["f14"],
                     "companyCode": code, "nsIndustryId": ns_id, "region": region,
                     "registeredRegion": row.get("region") or "其他", "subregion": row.get("subregion") or "",
                     "registeredAddress": row.get("registeredAddress") or "", "updatedAt": time.strftime("%Y-%m-%d"),
                     "sourceUrl": quote_url(code), "marketSector": row.get("f100") or "", "metrics": metrics,
+                    "financingScore": fin["score"] if fin else None,
                 })
     output.extend(build_supplemental_companies())
     return output
@@ -245,11 +312,17 @@ def build_supplemental_companies():
     for index, (name, region, subregion, ns_id, stage, basis, url) in enumerate(SUPPLEMENTAL_COMPANIES, start=1):
         evidence = f"企业阶段：{stage}；地区归属依据：{basis}。企业按实际经营地计入，不以注册地址作为唯一条件。"
         metrics = {key: {"score": None, "confidence": 0, "evidence": "尚未采集公司级证据", "evidenceItems": []}
-                   for key in ("budget", "expansion", "technology", "product", "market", "talent", "policy")}
+                   for key in ("budget", "expansion", "technology", "product", "market", "talent", "policy", "financing")}
         metrics["expansion"] = {"score": 78, "confidence": 0.76, "evidence": evidence,
                                 "evidenceItems": [{"source": stage, "url": url, "text": evidence}]}
         metrics["policy"] = {"score": 76, "confidence": 0.84, "evidence": evidence,
                              "evidenceItems": [{"source": "政府企业名单/政府转载名单", "url": url, "text": evidence}]}
+        fin_stage_score = stage_financing_score(stage)
+        metrics["financing"] = {
+            "score": fin_stage_score, "confidence": 0.72,
+            "evidence": f"融资/资本情况：企业阶段披露为「{stage}」，按公开政府名单/新闻折算融资活跃度 {fin_stage_score} 分。",
+            "evidenceItems": [{"source": stage, "url": url, "text": f"公开披露的企业阶段：{stage}（来源：{basis}）"}],
+        }
         record = {
             "id": f"growth-{ns_id}-{region}-{index}", "industry": name, "companyName": name,
             "companyCode": "", "nsIndustryId": ns_id, "region": region,
