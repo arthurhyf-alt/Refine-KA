@@ -1,0 +1,22 @@
+{
+  "digital-infra": {
+    "export": {"score": 92, "confidence": 0.78, "evidence": "全国细分出口基准：集成电路出口金额同比增长88.7%，自动数据处理设备增长36.2%。", "source": "海关重点商品量值表整理", "url": "https://hsguilei.com/news/china-exports-h1-2026"},
+    "demand": {"score": 84, "confidence": 0.62, "evidence": "外需代理：AI服务器、数据中心与芯片需求带动集成电路和自动数据处理设备出口高增。", "source": "海关重点商品量值表整理", "url": "https://hsguilei.com/news/china-exports-h1-2026"}
+  },
+  "advanced-manufacturing": {
+    "export": {"score": 76, "confidence": 0.90, "evidence": "全国细分出口基准：工业机器人上半年出口62.9亿元，同比增长18.6%。", "source": "国务院新闻办2026年上半年进出口情况发布会", "url": "https://www.gov.cn/lianbo/fabu/202607/content_7075392.htm"},
+    "demand": {"score": 72, "confidence": 0.68, "evidence": "外需代理：工业机器人出口增长18.6%，销往全球141个国家和地区。", "source": "国务院新闻办2026年上半年进出口情况发布会", "url": "https://www.gov.cn/lianbo/fabu/202607/content_7075392.htm"}
+  },
+  "grid-storage": {
+    "export": {"score": 86, "confidence": 0.90, "evidence": "全国细分出口基准：锂电池、风力发电机组出口分别增长37.6%和35.6%。", "source": "国务院新闻办2026年上半年进出口情况发布会", "url": "https://www.gov.cn/lianbo/fabu/202607/content_7075392.htm"},
+    "demand": {"score": 80, "confidence": 0.68, "evidence": "外需代理：全球绿色能源建设需求带动锂电池和风电机组出口双位数增长。", "source": "国务院新闻办2026年上半年进出口情况发布会", "url": "https://www.gov.cn/lianbo/fabu/202607/content_7075392.htm"}
+  },
+  "transport": {
+    "export": {"score": 88, "confidence": 0.82, "evidence": "全国细分出口基准：汽车（含底盘）出口金额增长48.3%，船舶增长24.9%。", "source": "海关重点商品量值表整理", "url": "https://hsguilei.com/news/china-exports-h1-2026"},
+    "demand": {"score": 79, "confidence": 0.65, "evidence": "外需代理：汽车出口数量增长53.0%，船舶出口金额增长24.9%，显示海外订单需求较强。", "source": "海关重点商品量值表整理", "url": "https://hsguilei.com/news/china-exports-h1-2026"}
+  },
+  "medical-device": {
+    "export": {"score": 75, "confidence": 0.58, "evidence": "细分产品信号：手术机器人出口4.8亿元、增长3.3倍；该指标只代表高端医疗设备子行业。", "source": "国务院新闻办2026年上半年进出口情况发布会", "url": "https://www.gov.cn/lianbo/fabu/202607/content_7075392.htm"},
+    "demand": {"score": 70, "confidence": 0.52, "evidence": "细分外需代理：手术机器人出口市场由23个增加至49个。", "source": "国务院新闻办2026年上半年进出口情况发布会", "url": "https://www.gov.cn/lianbo/fabu/202607/content_7075392.htm"}
+  }
+}

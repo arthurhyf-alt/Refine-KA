@@ -1,0 +1,24 @@
+{
+  "asOf": "2026-06-30",
+  "scope": "全国1—6月累计出口金额；人民币口径",
+  "method": "仅采用明确标注为出口金额、出口交货值或出口数量的指标。增长榜与下降榜均为2026年1—6月累计同比；汇总大类与细分商品不相加。",
+  "verifiedGrowth": [
+    {"industry":"集成电路","growth":88.7,"metric":"出口金额同比；累计1.23万亿元","evidenceLevel":"B","structure":"金额增速显著高于数量增速，呈量价齐升，机会集中在芯片、封测、存储模组和设备材料链","largeEnterprise":"筛海外收入、先进封装和存储业务高速增长的龙头","sme":"筛封测设备、材料、模组和专用零部件专精特新企业","partnership":"很高","source":"HS归类通基于中国海关重点商品量值表整理","url":"https://hsguilei.com/news/china-exports-h1-2026"},
+    {"industry":"汽车（含底盘）","growth":48.3,"metric":"出口金额同比；累计6358亿元","evidenceLevel":"B","structure":"出口数量增长53.0%，略快于金额，市场扩张强但均价承压","largeEnterprise":"优先海外销量、海外工厂和渠道继续增长的整车龙头","sme":"筛已进入龙头供应链的电驱、热管理、智能驾驶和轻量化企业","partnership":"很高","source":"HS归类通基于中国海关重点商品量值表整理","url":"https://hsguilei.com/news/china-exports-h1-2026"},
+    {"industry":"自动数据处理设备","growth":36.2,"metric":"出口金额同比；累计9561亿元","evidenceLevel":"B","structure":"AI服务器与数据中心需求驱动，通用消费电脑与算力硬件需分开判断","largeEnterprise":"关注服务器、算力基础设施和海外数据中心订单龙头","sme":"关注电源、散热、高速连接、PCB及服务器零部件供应商","partnership":"很高","source":"HS归类通基于中国海关重点商品量值表整理","url":"https://hsguilei.com/news/china-exports-h1-2026"},
+    {"industry":"船舶与海洋工程装备","growth":24.9,"metric":"出口金额同比；累计2193亿元","evidenceLevel":"B","structure":"长周期订单驱动，合作机会主要集中在船厂龙头及高价值配套供应链","largeEnterprise":"关注在手订单、交付节奏及高附加值船型占比","sme":"关注动力、导航、通信、海工设备和船用材料配套企业","partnership":"高","source":"HS归类通基于中国海关重点商品量值表整理","url":"https://hsguilei.com/news/china-exports-h1-2026"},
+    {"industry":"工业机器人","growth":18.6,"metric":"出口金额同比；累计62.9亿元","evidenceLevel":"A","structure":"2025年已转为净出口，2026年继续扩张，细分零部件和行业解决方案均有入口","largeEnterprise":"关注具备海外渠道、整机和系统集成能力的龙头","sme":"关注减速器、伺服、控制器、机器视觉和末端执行器企业","partnership":"高","source":"国务院新闻办2026年上半年进出口情况发布会","url":"https://www.gov.cn/lianbo/fabu/202607/content_7075392.htm"}
+  ],
+  "verifiedDecline": [
+    {"industry":"陶瓷产品","growth":-28.3,"metric":"出口金额同比；累计570亿元","evidenceLevel":"B","structure":"传统劳动密集和价格敏感环节明显承压","largeEnterprise":"仅保留品牌化、高端化及海外渠道仍增长的龙头","sme":"普通代工型企业合作优先级下调","partnership":"低","source":"HS归类通基于中国海关重点商品量值表整理","url":"https://hsguilei.com/news/china-exports-h1-2026"},
+    {"industry":"玩具","growth":-14.5,"metric":"出口金额同比；累计1081亿元","evidenceLevel":"B","structure":"行业整体下滑，IP、智能玩具和自主品牌可能与大盘分化","largeEnterprise":"重点核验IP、自主品牌和智能化产品出口仍增长的龙头","sme":"纯代工企业谨慎，拥有IP或跨境渠道者单独筛选","partnership":"中低","source":"HS归类通基于中国海关重点商品量值表整理","url":"https://hsguilei.com/news/china-exports-h1-2026"},
+    {"industry":"灯具及照明装置","growth":-11.9,"metric":"出口金额同比；累计1222亿元","evidenceLevel":"B","structure":"传统照明承压，智能照明、车灯和专业场景存在结构性机会","largeEnterprise":"关注智能照明、车规照明和海外品牌渠道龙头","sme":"通用低价灯具谨慎，控制器、光学和车灯供应商可保留","partnership":"中","source":"HS归类通基于中国海关重点商品量值表整理","url":"https://hsguilei.com/news/china-exports-h1-2026"},
+    {"industry":"鞋靴","growth":-11.7,"metric":"出口金额同比；数量下降4.6%","evidenceLevel":"B","structure":"金额降幅大于数量，体现价格压力和产能外移","largeEnterprise":"仅关注自有品牌、功能鞋和海外零售渠道增长企业","sme":"传统OEM合作优先级下调，材料与功能技术供应商另行筛选","partnership":"低","source":"HS归类通基于中国海关重点商品量值表整理","url":"https://hsguilei.com/news/china-exports-h1-2026"}
+  ],
+  "enterpriseRules": [
+    {"signal":"行业增长、龙头增长、中小企业增长","judgement":"普遍景气","action":"扩大合作对象池"},
+    {"signal":"行业增长、龙头增长、中小企业下降","judgement":"增长向龙头集中","action":"优先龙头及核心供应链"},
+    {"signal":"行业下降、龙头增长","judgement":"龙头逆势集中份额","action":"重点寻找逆势龙头"},
+    {"signal":"出口数量增长、出口金额下降","judgement":"价格竞争或产品降价","action":"降低纯贸易和低附加值代工优先级"}
+  ]
+}

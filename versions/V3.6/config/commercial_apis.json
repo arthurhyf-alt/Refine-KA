@@ -1,0 +1,28 @@
+{
+  "enabled": false,
+  "max_cost_cny_per_run": 20,
+  "providers": {
+    "tianyancha": {
+      "enabled": false,
+      "token_environment_variable": "INDUSTRY_SCREENER_TYC_TOKEN",
+      "company_search": {
+        "api_id": 776,
+        "url": "https://open.api.tianyancha.com/services/v4/open/searchV3",
+        "unit_price_cny": 0.2
+      },
+      "company_jobs": {
+        "api_id": 1118,
+        "url": "https://open.api.tianyancha.com/services/open/m/employments/3.0",
+        "unit_price_cny": 0.2
+      }
+    },
+    "qichacha": {
+      "enabled": false,
+      "key_environment_variable": "INDUSTRY_SCREENER_QCC_KEY",
+      "secret_environment_variable": "INDUSTRY_SCREENER_QCC_SECRET",
+      "company_financing": {"api_code": 950, "unit_price_cny": 0.5},
+      "company_jobs": {"api_code": 718, "unit_price_cny": 0.5},
+      "bidding": {"api_code": 958, "unit_price_cny": 1.0}
+    }
+  }
+}

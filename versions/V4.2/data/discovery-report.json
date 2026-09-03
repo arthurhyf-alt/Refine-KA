@@ -1,0 +1,11 @@
+{
+  "updatedAt": "2026-09-02T11:32:36",
+  "queryUniverse": 60,
+  "queriesScheduled": 24,
+  "queriesSucceeded": 24,
+  "candidatesSeen": 83,
+  "candidatesAccepted": 14,
+  "errors": [],
+  "mode": "semantic_web_discovery",
+  "nextOffset": 48
+}
