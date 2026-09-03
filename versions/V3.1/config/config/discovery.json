@@ -1,0 +1,28 @@
+{
+  "enabled": false,
+  "engine": "bing_rss",
+  "endpoint": "https://www.bing.com/search?format=rss&q={query}",
+  "max_results_per_query": 3,
+  "queries": [
+    {
+      "dimension": "jobs",
+      "region_scope": ["全国", "上海", "浙江", "福建", "江西"],
+      "template": "{region} {industry} 招聘 职位数 同比 2026 人才报告"
+    },
+    {
+      "dimension": "finance",
+      "region_scope": ["全国", "上海", "浙江", "福建", "江西"],
+      "template": "{region} {industry} 融资 金额 投资事件 2026"
+    },
+    {
+      "dimension": "finance",
+      "region_scope": ["上海", "浙江", "福建", "江西"],
+      "template": "site:gov.cn {region} {industry} 预算 年度投资 重点项目 2026"
+    }
+  ],
+  "trusted_domains": [
+    "gov.cn", "stats.gov.cn", "mohrss.gov.cn", "ccgp.gov.cn", "ggzy.gov.cn",
+    "zhaopin.com", "liepin.com", "kanzhun.com", "people.com.cn", "news.cn",
+    "cnstock.com", "eeo.com.cn", "ceweekly.cn", "china-iace.com"
+  ]
+}

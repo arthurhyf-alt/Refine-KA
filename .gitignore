@@ -1,0 +1,35 @@
+# Python and local runtime
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+runtime/
+
+# Local state and generated data
+data/server.pid
+data/*.db
+data/*-wal
+data/*-shm
+data/pipeline-results.json
+*.log
+*.tmp
+
+# Credentials and local configuration
+.env
+.env.*
+*.secret
+credentials*
+cookies*
+
+# Build and delivery artifacts
+outputs/
+dist/
+build/
+*.zip
+
+# OS and editor files
+.git/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

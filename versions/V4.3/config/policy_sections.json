@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "max_links_per_section": 30,
+  "sections": [
+    {"id": "miit-policy", "name": "工业和信息化部政务公开", "url": "https://wap.miit.gov.cn/zwgk/index.html", "region": "全国"},
+    {"id": "sh-government", "name": "上海市人民政府最新政策", "url": "https://www.sh.gov.cn/", "region": "上海"},
+    {"id": "sh-science-policy", "name": "上海市科委政策文件", "url": "https://stcsm.sh.gov.cn/zwgk/zcwj/hkhwj/index.html", "region": "上海"},
+    {"id": "zj-enterprise-policy", "name": "浙江省企业之家政策与申报", "url": "https://zj87.jxt.zj.gov.cn/", "region": "浙江"},
+    {"id": "fj-government-files", "name": "福建省人民政府最新文件", "url": "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/", "region": "福建"},
+    {"id": "fj-policy-library", "name": "福建省政策文件库", "url": "https://www.fujian.gov.cn/zck/", "region": "福建"},
+    {"id": "jx-government", "name": "江西省人民政府门户", "url": "http://www.jiangxi.gov.cn/", "region": "江西"},
+    {"id": "jx-industry", "name": "江西省工业和信息化厅", "url": "http://gxt.jiangxi.gov.cn/", "region": "江西"}
+  ],
+  "include_terms": ["政策", "通知", "意见", "规划", "方案", "补贴", "补助", "专项资金", "申报", "认定", "名单", "公示", "示范", "试点", "奖励", "荣誉", "专精特新", "小巨人", "单项冠军", "企业技术中心", "绿色工厂", "智能工厂", "未来工厂", "首台套", "重点项目", "行动计划"],
+  "exclude_terms": ["人事任免", "公务员招录", "政府采购结果", "会议活动", "领导讲话", "工作动态"]
+}

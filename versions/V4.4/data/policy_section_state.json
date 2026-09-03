@@ -1,0 +1,159 @@
+{
+  "sections": {
+    "miit-policy": {
+      "name": "工业和信息化部政务公开",
+      "url": "https://wap.miit.gov.cn/zwgk/index.html",
+      "urls": [
+        "https://wap.miit.gov.cn/zwgk/zcwj/index.html",
+        "https://wap.miit.gov.cn/zwgk/wjgs/index.html",
+        "https://wap.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_6fbc038bf15c445ab53b2a94a3f9d4e4.html",
+        "https://wap.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_7ad2d311e6e249388a16c684c1d4e237.html",
+        "https://wap.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_8d0f546dabb440189c0ceea0bea099fc.html",
+        "https://wap.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_74a880b75f664878b9d5cb62412c014d.html",
+        "https://wap.miit.gov.cn/zwgk/zcjd/art/2026/art_95b96352cf194dc684d4ea2a51630608.html",
+        "https://wap.miit.gov.cn/zwgk/zcjd/art/2026/art_201e96b375d34976bad48143f70a5904.html",
+        "https://wap.miit.gov.cn/zwgk/wjgs/art/2026/art_5463307b1dc943c0aefaebd02a00669d.html",
+        "https://wap.miit.gov.cn/zwgk/wjgs/art/2026/art_7aa5f882263143c09b294c5c19264f8b.html",
+        "https://wap.miit.gov.cn/zwgk/wjgs/art/2026/art_7ac0ab73c8a84530ab8fdda120d4a005.html",
+        "https://wap.miit.gov.cn/zwgk/wjgs/art/2026/art_0f8736b6b3cf4ef49d918a4900985d24.html",
+        "https://wap.miit.gov.cn/zwgk/wjgs/art/2026/art_b0a47da6ba974951836931fc57433e92.html",
+        "https://wap.miit.gov.cn/zwgk/wjgs/art/2026/art_f34bc255e25541af9007eb4ee4e42bcc.html",
+        "https://wap.miit.gov.cn/zwgk/zcjd/index.html",
+        "https://wap.miit.gov.cn/zwgk/zcjd/art/2026/art_5291b7840f3141f39d63ec332a8d01d8.html",
+        "https://wap.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_8f71008b422b4a96bc5c6255de671820.html",
+        "https://wap.miit.gov.cn/zwgk/zcjd/art/2026/art_a8de22a6506b450ba9d763c3352bc411.html",
+        "https://wap.miit.gov.cn/zwgk/zcjd/art/2026/art_571edb22ceb34eeb9c994224e85bdeee.html",
+        "https://wap.miit.gov.cn/zwgk/zcwj/wjfb/tz/art/2026/art_277a824ef0ae478faf7dc2d4f14b5db6.html",
+        "https://wap.miit.gov.cn/zwgk/zcjd/art/2026/art_6a7c787bf39a42db91a42efa38239e8d.html",
+        "https://wap.miit.gov.cn/zwgk/zcjd/art/2026/art_4c5f050be71f49c5a91683de955663b3.html",
+        "https://wap.miit.gov.cn/zwgk/zcjd/art/2026/art_6c8263d07e1d4836ba91d854ed0e0922.html",
+        "https://wap.miit.gov.cn/zwgk/zcjd/art/2026/art_051456d97f9e4dd898e0d7abfae42f4e.html",
+        "https://wap.miit.gov.cn/zwgk/zcjd/art/2026/art_62fef41308a64db19a388de460f64a9d.html",
+        "https://www.miit.gov.cn/xzzfxxgspt/index.html"
+      ],
+      "checkedAt": "2026-09-02T11:49:40",
+      "listed": 26,
+      "new": 0
+    },
+    "sh-government": {
+      "name": "上海市人民政府最新政策",
+      "url": "https://www.sh.gov.cn/",
+      "urls": [
+        "https://www.shanghai.gov.cn/zhengce/list",
+        "https://zwdt.sh.gov.cn/qykj/shell_oc_policy_zq/policy/index?from=zwfw",
+        "https://hd.sh.gov.cn/inter/",
+        "https://www.sh.gov.cn/2023zdjc/index.html",
+        "http://ghzyj.sh.gov.cn/"
+      ],
+      "checkedAt": "2026-09-02T11:49:41",
+      "listed": 5,
+      "new": 0
+    },
+    "sh-science-policy": {
+      "name": "上海市科委政策文件",
+      "url": "https://stcsm.sh.gov.cn/zwgk/zcwj/hkhwj/index.html",
+      "urls": [
+        "https://stcsm.sh.gov.cn/zwgk/zcwj/hkwj/index.html",
+        "https://stcsm.sh.gov.cn/zwgk/tzgs/zhtz/20260901/74ab1dd3ab444c87b2cceb6e74e72971.html",
+        "https://stcsm.sh.gov.cn/zwgk/ghjh/20260826/dee9bf8c2d1641f98d6f89592c8fbdb5.html",
+        "https://stcsm.sh.gov.cn/zwgk/tzgs/zhtz/20260720/d1cd7c302e9a4aefbe32fd047f75c489.html",
+        "https://stcsm.sh.gov.cn/zwgk/tzgs/zhtz/20260701/2dd453f154cb4483aa97333219308529.html",
+        "https://stcsm.sh.gov.cn/zwgk/kjzc/zcwj/qtzcwj/20260623/781af56e96a74f579986bea8cd51a8f8.html",
+        "https://stcsm.sh.gov.cn/zwgk/tzgs/gsgg/bsgsgg/kjjhxmjggb/20260204/86f8c241a6a244e4b9714d6c4f866c43.html",
+        "https://stcsm.sh.gov.cn/zwgk/tzgs/gsgg/zhgsgg/20251224/0480550769a6448eb13d44318f5920da.html",
+        "https://stcsm.sh.gov.cn/zwgk/ghjh/20251222/be71abafe631407e80d4c37f3f3ab264.html",
+        "https://stcsm.sh.gov.cn/zwgk/tzgs/zhtz/20251205/591cc09cc143491590260b0a242f4ece.html",
+        "https://stcsm.sh.gov.cn/zwgk/tzgs/zhtz/20251117/e98400b69a9b46d1b382f4a035286418.html",
+        "https://stcsm.sh.gov.cn/zwgk/tzgs/gsgg/zhgsgg/20251111/c73f02d8107a45e5890e08cc5864c47a.html",
+        "https://stcsm.sh.gov.cn/zwgk/kyjhxm/xmsb/20250929/3fb35bd941c844b7b3d2ce64c6121d35.html",
+        "https://stcsm.sh.gov.cn/zwgk/tzgs/zhtz/20250912/cc206fb791a749aa93655e3f2088be83.html",
+        "https://stcsm.sh.gov.cn/zwgk/tzgs/zhtz/20250908/c6d6a04d06e14c94980c37fdaa93c561.html",
+        "https://stcsm.sh.gov.cn/zwgk/tzgs/zhtz/20250905/7def89a9c7bf4cddb38bf6a113695b42.html"
+      ],
+      "checkedAt": "2026-09-02T11:49:41",
+      "listed": 16,
+      "new": 0
+    },
+    "zj-enterprise-policy": {
+      "name": "浙江省企业之家政策与申报",
+      "url": "https://zj87.jxt.zj.gov.cn/",
+      "urls": [
+        "https://zqpy.jxt.zj.gov.cn:8030/",
+        "https://zj87.jxt.zj.gov.cn/zlzq/web/views/article/news/detail.html?id=312209",
+        "https://zj87.jxt.zj.gov.cn/zlzq/web/views/article/news/detail.html?id=312207",
+        "https://zj87.jxt.zj.gov.cn/zlzq/web/views/article/news/detail.html?id=312007",
+        "https://zj87.jxt.zj.gov.cn/zlzq/web/views/article/news/detail.html?id=311902",
+        "https://zj87.jxt.zj.gov.cn/zlzq/web/views/article/news/list.html?type=2",
+        "https://zj87.jxt.zj.gov.cn/zlzq/web/views/activity/live/detail.html?id=30440",
+        "https://zj87.jxt.zj.gov.cn/zlzq/web/views/activity/live/detail.html?id=30439",
+        "https://hqzc-oss.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn//xzz/public/2026-08-27/1787796559420.docx",
+        "https://hqzc-oss.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn//xzz/public/2026-08-25/1787624455357.docx",
+        "https://hqzc-oss.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn//xzz/public/2026-08-25/1787648131543.pdf",
+        "https://zj87.jxt.zj.gov.cn/zj87-hqzc/",
+        "https://zj87.jxt.zj.gov.cn/zlzq/web/views/consulting/appealForm.html?types=1"
+      ],
+      "checkedAt": "2026-09-02T11:49:41",
+      "listed": 13,
+      "new": 0
+    },
+    "fj-government-files": {
+      "name": "福建省人民政府最新文件",
+      "url": "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/",
+      "urls": [
+        "https://ythdrhxzzf.fujian.gov.cn/zfgs",
+        "https://www.fujian.gov.cn/jdhy/zcjd/",
+        "https://www.fujian.gov.cn/hdjl/yjzj/",
+        "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/202609/t20260901_7207401.htm",
+        "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/202609/t20260901_7207398.htm",
+        "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/202609/t20260901_7207396.htm",
+        "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/202609/t20260901_7207391.htm",
+        "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/202609/t20260901_7207359.htm",
+        "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/202609/t20260901_7207349.htm",
+        "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/202609/t20260901_7207345.htm",
+        "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/202609/t20260901_7207232.htm",
+        "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/202608/t20260830_7206417.htm",
+        "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/202608/t20260828_7206084.htm",
+        "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/202608/t20260827_7204966.htm",
+        "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/202608/t20260827_7204828.htm",
+        "https://www.fujian.gov.cn/zwgk/zxwj/szfwj/202608/t20260821_7202064.htm"
+      ],
+      "checkedAt": "2026-09-02T11:49:43",
+      "listed": 16,
+      "new": 0
+    },
+    "fj-policy-library": {
+      "name": "福建省政策文件库",
+      "url": "https://www.fujian.gov.cn/zck/",
+      "urls": [
+        "https://www.fujian.gov.cn/zck/s?tabShow=gjjbwwj&siteCode=3500000049_zc&qt="
+      ],
+      "checkedAt": "2026-09-02T11:49:44",
+      "listed": 1,
+      "new": 0
+    },
+    "jx-government": {
+      "name": "江西省人民政府门户",
+      "url": "http://www.jiangxi.gov.cn/",
+      "urls": [
+        "http://www.jiangxi.gov.cn/jxsrmzf/szfwj/pc/list.html",
+        "http://www.jiangxi.gov.cn/jxsrmzf/dczj/pc/list.html"
+      ],
+      "checkedAt": "2026-09-02T11:49:45",
+      "listed": 2,
+      "new": 0
+    },
+    "jx-industry": {
+      "name": "江西省工业和信息化厅",
+      "url": "http://gxt.jiangxi.gov.cn/",
+      "urls": [
+        "http://gxt.jiangxi.gov.cn/jxsgyhxxht/ghjh976/index.html",
+        "https://www.creditjx.gov.cn/DataQuery/doublePublicity/to_doublePublicList?orgid=2EB078AFA49E5251E050007F010076D8",
+        "http://gxt.jiangxi.gov.cn/jxsgyhxxht/zcwj/index.html"
+      ],
+      "checkedAt": "2026-09-02T11:49:46",
+      "listed": 3,
+      "new": 0
+    }
+  },
+  "updatedAt": "2026-09-02T11:49:46"
+}

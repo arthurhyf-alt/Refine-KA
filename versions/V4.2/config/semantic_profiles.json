@@ -1,0 +1,49 @@
+{
+  "version": "1.0",
+  "lookback_days": 45,
+  "max_queries_per_run": 24,
+  "max_results_per_query": 5,
+  "minimum_semantic_score": 0.34,
+  "regions": ["全国", "上海", "浙江", "福建", "江西"],
+  "profiles": {
+    "export": {
+      "label": "需求与外需",
+      "concepts": ["出口增长", "海外订单", "出口交货值", "外需", "进出口", "海外市场", "出口额", "出口数量", "出口单价"],
+      "actions": ["增长", "下降", "回升", "收缩", "新增订单", "同比", "突破"],
+      "query_templates": ["{region} {industry} 出口 海外订单 同比 2026", "{region} {industry} 外需 进出口 最新数据"]
+    },
+    "industrial": {
+      "label": "供给与工业增加值",
+      "concepts": ["工业增加值", "产能利用率", "产量", "规上工业", "供给瓶颈", "开工率", "产能", "生产指数"],
+      "actions": ["增长", "下降", "投产", "扩产", "停产", "同比", "恢复"],
+      "query_templates": ["{region} {industry} 工业增加值 产量 同比 2026", "{region} {industry} 产能利用率 开工率 最新"]
+    },
+    "jobs": {
+      "label": "人才与招聘",
+      "concepts": ["招聘岗位", "职位数量", "人才需求", "校招", "社会招聘", "研发岗位", "用工需求", "招聘人数"],
+      "actions": ["增长", "下降", "扩招", "缩招", "新增", "同比"],
+      "query_templates": ["{region} {industry} 招聘 岗位 人才需求 2026", "{region} {industry} 校招 扩招 职位 最新"]
+    },
+    "finance": {
+      "label": "资本与投资",
+      "concepts": ["固定资产投资", "资本开支", "重大项目", "融资", "产业基金", "政府投资", "专项债", "扩建", "新建基地", "新增产线"],
+      "actions": ["增长", "下降", "获批", "签约", "开工", "投产", "完成投资", "计划投资"],
+      "query_templates": ["{region} {industry} 投资 项目 融资 2026", "{region} {industry} 扩产 新建基地 资本开支 最新"]
+    },
+    "technology": {
+      "label": "技术与商业化",
+      "concepts": ["技术突破", "重大专利", "首台套", "国产替代", "商业化", "量产", "新产品", "技术攻关", "研发进展"],
+      "actions": ["突破", "发布", "量产", "获奖", "认证", "落地", "形成订单"],
+      "query_templates": ["{region} {industry} 技术突破 量产 新产品 2026", "{region} {industry} 专利 国产替代 商业化 最新"]
+    },
+    "policy": {
+      "label": "政策与政府支持",
+      "concepts": ["政策支持", "专项规划", "政府补贴", "国家战略", "行动方案", "实施意见", "产业政策", "专项资金", "重点产业链"],
+      "actions": ["发布", "印发", "支持", "补贴", "入选", "获批", "征求意见"],
+      "query_templates": ["site:gov.cn {region} {industry} 政策 补贴 2026", "{region} {industry} 行动方案 专项资金 最新"]
+    }
+  },
+  "evidence_terms": ["同比", "%", "亿元", "万元", "项目", "岗位", "公告", "统计局", "海关", "公司公告", "年度报告"],
+  "negative_terms": ["课程", "论文代写", "加盟", "招聘培训", "百科", "论坛灌水", "下载站"],
+  "trusted_domains": ["gov.cn", "stats.gov.cn", "customs.gov.cn", "pbc.gov.cn", "cninfo.com.cn", "sse.com.cn", "szse.cn", "bse.cn", "news.cn", "people.com.cn"]
+}

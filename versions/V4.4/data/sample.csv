@@ -1,0 +1,5 @@
+id,industry,region,updated_at,export_score,export_confidence,industrial_score,industrial_confidence,jobs_score,jobs_confidence,finance_score,finance_confidence,technology_score,technology_confidence,demand_score,demand_confidence,policy_score,policy_confidence
+semiconductor,集成电路,上海,2026-06-30,78,0.8,86,0.9,74,0.6,82,0.8,92,0.8,88,0.8,94,0.95
+medical-device,医疗仪器设备,福建,2026-06-30,72,0.7,91,0.9,65,0.5,76,0.7,84,0.75,80,0.7,86,0.9
+real-estate-zj,房地产开发,浙江,2026-06-30,,0,30,0.7,35,0.5,38,0.7,45,0.4,28,0.8,48,0.8
+
